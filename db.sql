@@ -31,5 +31,5 @@ select count(DISTINCT ip) as ip from tongji
 where url='http://tongji.kusanyao.com/index.html';
 
 -- uv
-select count(id) as uv from tongji
+select count(guid) as uv from tongji
 where url='http://tongji.kusanyao.com/index.html';

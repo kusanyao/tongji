@@ -29,7 +29,7 @@
                     var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
                     return v.toString(16);
                 });
-                var expires = new Date(new Date().setHours(18, 0, 0, 999)).toGMTString();
+                var expires = new Date(new Date().setHours(23,  59, 59, 999)).toGMTString();
                 document.cookie = conf.guidCookieName + "="+ param.guid + ";expires=" + expires;
             }
         }
