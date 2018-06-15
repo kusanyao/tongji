@@ -29,11 +29,12 @@
                     var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
                     return v.toString(16);
                 });
-                var expires = new Date(new Date().setHours(23,  59, 59, 999)).toGMTString();
-                document.cookie = conf.guidCookieName + "="+ param.guid + ";expires=" + expires;
+                var exp = new Date();
+                exp.setHours(23,  59, 59, 999);
+                document.cookie = conf.guidCookieName + "="+ param.guid + ";expires=" + exp.toGMTString();
             }
         }
-    }    
+    }
 
     // window对象数据
     if(window && window.screen){

@@ -23,13 +23,26 @@ CREATE TABLE `tongji` (
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='tongji';
 
 -- pv
-select count(id) as pv from tongji 
+select url,count(id) as pv from tongji 
 WHERE url='http://tongji.kusanyao.com/index.html';
 
+select url,count(id) from tongji 
+WHERE url like 'http://tongji.kusanyao.com/index.html%'
+group by url;
+
 -- ip
-select count(DISTINCT ip) as ip from tongji
-where url='http://tongji.kusanyao.com/index.html';
+select url,count(ip) as ip from tongji
+where url='http://tongji.kusanyao.com/index.html'
+group by ip;
+
+select url,count(ip) as ip from tongji
+where url like 'http://tongji.kusanyao.com/index.html%'
+group by url;
 
 -- uv
-select count(guid) as uv from tongji
+select url,count(guid) as uv from tongji
 where url='http://tongji.kusanyao.com/index.html';
+
+select  url,guid,count(DISTINCT url,guid) as uv from tongji
+where url like 'http://tongji.kusanyao.com/index.html%'
+GROUP BY url;
