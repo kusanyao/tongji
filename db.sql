@@ -31,11 +31,11 @@ WHERE url like 'http://tongji.kusanyao.com/index.html%'
 group by url;
 
 -- ip
-select url,count(ip) as ip from tongji
+select url,count(DISTINCT ip) as ip from tongji
 where url='http://tongji.kusanyao.com/index.html'
 group by ip;
 
-select url,count(ip) as ip from tongji
+select url,count(DISTINCT url,ip) as ip from tongji
 where url like 'http://tongji.kusanyao.com/index.html%'
 group by url;
 
@@ -43,6 +43,6 @@ group by url;
 select url,count(guid) as uv from tongji
 where url='http://tongji.kusanyao.com/index.html';
 
-select  url,guid,count(DISTINCT url,guid) as uv from tongji
+select  url,count(DISTINCT url,guid) as uv from tongji
 where url like 'http://tongji.kusanyao.com/index.html%'
 GROUP BY url;
